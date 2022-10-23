@@ -258,7 +258,8 @@ const Home=({resData})=> {
 
   if(resData?.hoote?.files.length > 0){
     let metaObj= getThumb(resData?.hoote?.files)
-    metaObjUrl = metaObj.imgurl
+    console.log("metaObj from thumb", metaObj)
+    // metaObjUrl = metaObj.imgurl
   }
   else{
     metaObjUrl = "/img/logo.svg"
