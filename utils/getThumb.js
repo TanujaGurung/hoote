@@ -1,21 +1,25 @@
 const getThumbnail = (files)=>{
+    let url;
     for(let i =0; i< files.length; i++){
            
-        let url;
         if(files[i].thumbnail){
             const temp = files[i].thumbnail;
-            if(temp.includes("jpeg"))
+            if(temp.includes("jpeg")){
              url= files[i].thumbnail  
-             return url;  
+             break;
+            }
+             
         }
         if(!files[i].thumbnail){ 
             console.log("files[i].url.includes", files[i].url.includes(".jpeg"))
-            if(files[i].url.includes(".jpeg"))
+            if(files[i].url.includes(".jpeg")){
                 url= files[i].url
-                return url; 
+               break; 
+            }
             
         }
     }
+    return url
 }
 const getDurationn = (files)=>{
     for(let i =0; i< files.length; i++){
