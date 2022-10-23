@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { useState, useEffect, Fragment } from "react";
 import { isValidHttpUrl } from "../utils/isValidUrl";
-import { getLinkPreview } from "link-preview-js";
 import SocialSection from "./SocialSection";
 const youtube = require("youtube-metadata-from-url");
 //var scrape = require("metatag-crawler");

@@ -3,7 +3,6 @@
 import { Fragment, useEffect, useState } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-import AspectRatio from "../utils/AspectRatio";
 
 const ImageComp = ({ file }) => {
   const [imgUrl, setImgUrl] = useState([]);

@@ -1,11 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { Fragment, useRef, useState, useEffect } from "react";
 import { getTimeString } from "../utils/getTimeString";
-import dynamic from "next/dynamic";
-
-const AudioWaveComponent = dynamic(() => import("./Waveform"), {
-  ssr: false,
-});
 
 const AudioWithWave = ({ file }) => {
   const [audioUrl, setAudioUrl] = useState();
