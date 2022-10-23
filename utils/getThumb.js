@@ -4,7 +4,7 @@ const getThumbnail = (files)=>{
            
         if(files[i].thumbnail){
             const temp = files[i].thumbnail;
-            if(temp.includes("jpeg")){
+            if(temp.includes("jpeg") || temp.includes("jpeg")){
              url= files[i].thumbnail  
              break;
             }
@@ -12,7 +12,7 @@ const getThumbnail = (files)=>{
         }
         if(!files[i].thumbnail){ 
             console.log("files[i].url.includes", files[i].url.includes(".jpeg"))
-            if(files[i].url.includes(".jpeg")){
+            if(files[i].url.includes(".jpeg") || files[i].url.includes(".jpg")){
                 url= files[i].url
                break; 
             }
