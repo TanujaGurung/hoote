@@ -9,7 +9,6 @@ import AudioWithWave from "../components/AudioWithWave";
 import Profile from "../components/Profile";
 import SocialSection from "../components/SocialSection";
 import OnlyAudio from "../components/OnlyAudio";
-import dynamic from "next/dynamic";
 import OnlyText from "../components/OnlyText";
 import Text from "../components/Text";
 import ImageComp from "../components/ImageComp";
@@ -19,6 +18,7 @@ import { isAndroid, isIOS } from "react-device-detect";
 import { checkTypes } from "../utils/checkTypes";
 import Rehuut from "../components/Rehuut";
 import ShareModal from "../components/ShareModel";
+import { getThumb } from "../utils/getThumb";
 
 
 const Home=({resData})=> {
@@ -58,7 +58,6 @@ const Home=({resData})=> {
   const router = useRouter();
   const { huut } = router.query;
   //console.log("router", router)
-  const canonicalUrl = (`https://web.huut.com/preview` + (router.asPath === "/" ? "": router.asPath)).split("?")[0];
 
   //console.log("canonicalUrl", canonicalUrl)
   // console.log("query",huut)
@@ -76,7 +75,6 @@ const Home=({resData})=> {
     }
   }, [data, resData?.hoote]);
   
-  console.log("resData", resData);
 
   useEffect(() => {
     if (hoote) {
@@ -249,12 +247,14 @@ const Home=({resData})=> {
     }
   }
   // console.log("parentRefData", parentRefData)
-  const metaTitle = data?.user?.firstname + " on Huut";
+  const metaTitle = resData?.user?.firstname + " on Huut";
   const des = resData?.hoote?.text
+
+  const metaObj= getThumb(resData?.hoote?.files)
   return (
     <div>
       <Head>
-        <title>Social Media Preview</title>
+        <title>{metaTitle}</title>
         <meta property="og:url" content="https://team-place.com/" />
         <meta property="og:type" content="website" />
         <meta property="fb:app_id" content="2747726002141483" />
@@ -262,9 +262,9 @@ const Home=({resData})=> {
         <meta name="twitter:card" content="summary" />
         <meta
           property="og:description"
-          content="Hurray!! Yes Social Media Preview is Working"
+          content={resData?.hoote?.text}
         />
-        <meta property="og:image" content={resData?.hoote?.files[0].thumbnail} />
+        <meta property="og:image" content={metaObj.imgurl} />
       </Head>
       <h2>{resData?.user?.firstname}</h2>
       <div className="wrapper">
