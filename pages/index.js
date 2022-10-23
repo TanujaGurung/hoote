@@ -246,9 +246,14 @@ const Home=({resData})=> {
         return <h1>Invalid Input</h1>;
     }
   }
-  // console.log("parentRefData", parentRefData)
+  let metadesc;
   const metaTitle = resData?.user?.firstname + " on Huut";
-  const des = resData?.hoote?.text
+  if(resData?.hoote?.text){
+    metadesc=resData?.hoote?.text
+  }
+  else {
+    metadesc="check more on huut app"
+  }
   let metaObjUrl;
 
   if(resData?.hoote?.files.length > 0){
@@ -269,11 +274,11 @@ const Home=({resData})=> {
         <meta property="og:url" content="https://team-place.com/" />
         <meta property="og:type" content="website" />
         <meta property="fb:app_id" content="2747726002141483" />
-        <meta property="og:title" content={resData?.user?.firstname} />
+        <meta property="og:title" content={metaTitle} />
         <meta name="twitter:card" content="summary" />
         <meta
           property="og:description"
-          content={resData?.hoote?.text}
+          content={metadesc}
         />
         <meta property="og:image" content={metaObjUrl} />
       </Head>
