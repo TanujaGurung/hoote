@@ -4,6 +4,7 @@ import { getToken, getPreview, getParentRefDetails } from "../utils/getPreview";
 
 
 const Home=({resData})=> {
+  console.log("resData", resData)
   return (
     <div>
       <Head>
@@ -17,7 +18,7 @@ const Home=({resData})=> {
           property="og:description"
           content="Hurray!! Yes Social Media Preview is Working"
         />
-        <meta property="og:image" content={resData?.hotte?.files[0].thumbnail} />
+        <meta property="og:image" content={resData?.hoote?.files[0].thumbnail} />
       </Head>
       <h2>{resData?.user?.firstname}</h2>
     </div>
