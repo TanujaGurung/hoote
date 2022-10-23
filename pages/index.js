@@ -249,9 +249,17 @@ const Home=({resData})=> {
   // console.log("parentRefData", parentRefData)
   const metaTitle = resData?.user?.firstname + " on Huut";
   const des = resData?.hoote?.text
+  let metaObjUrl;
 
-  const metaObj= getThumb(resData?.hoote?.files)
-  console.log("metaObj", metaObj)
+  if(resData?.hoote?.files.length > 0){
+    let metaObj= getThumb(resData?.hoote?.files)
+    metaObjUrl = metaObj.imgurl
+  }
+  else{
+    metaObjUrl = "/img/logo.svg"
+  }
+
+  console.log("metaObj", metaObjUrl)
 
 
   return (
@@ -267,7 +275,7 @@ const Home=({resData})=> {
           property="og:description"
           content={resData?.hoote?.text}
         />
-        <meta property="og:image" content={metaObj.imgurl} />
+        <meta property="og:image" content={metaObjUrl} />
       </Head>
       {/* <h2>{resData?.user?.firstname}</h2> */}
       <div className="wrapper">
