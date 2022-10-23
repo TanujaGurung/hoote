@@ -1,10 +1,11 @@
 export const getThumb=(files)=>{
+    console.log("files", files)
     if(files.length > 0){
         if(files.length === 1 && files[0].type === "AUDIO"){
           const obj ={duration: files[0].duration, imgurl:"/img/audioWave.png"}
           return obj;
         }
-        if(files. length > 1){
+        if(files. length >= 1){
         for(let i =0; i< files.length; i++){
            
             let url;

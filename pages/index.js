@@ -251,6 +251,9 @@ const Home=({resData})=> {
   const des = resData?.hoote?.text
 
   const metaObj= getThumb(resData?.hoote?.files)
+  console.log("metaObj", metaObj)
+
+
   return (
     <div>
       <Head>
@@ -266,7 +269,7 @@ const Home=({resData})=> {
         />
         <meta property="og:image" content={metaObj.imgurl} />
       </Head>
-      <h2>{resData?.user?.firstname}</h2>
+      {/* <h2>{resData?.user?.firstname}</h2> */}
       <div className="wrapper">
         <div className="parent-container">
           <div className="child-wrapper">
